@@ -57,3 +57,7 @@ header {
   height: 10vw;
   background-color: var(--NS-yellow);
 }
+
+p{
+    font-size: 1em;
+}
