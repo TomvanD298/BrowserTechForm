@@ -1,38 +1,38 @@
 :root {
   /* Primary colours */
-  --NS-yellow: #ffc917;
-  --NS-blue: #003082;
-  --NS-lightBlue: #0063d3;
-  --NS-white: #ffffff;
+  --ns-yellow: #ffc917;
+  --ns-blue: #003082;
+  --ns-lightBlue: #0063d3;
+  --ns-white: #ffffff;
 
   /* Shades of grey */
-  --NS-gray-text: #070721;
-  --NS-gray-10: #202037;
-  --NS-gray-20: #39394d;
-  --NS-gray-30: #515164;
-  --NS-gray-40: #6a6a7a;
-  --NS-gray-50: #838390;
-  --NS-gray-60: #9c9ca6;
-  --NS-gray-70: #b5b5bc;
-  --NS-gray-80: #cdcdd3;
-  --NS-gray-90: #e6e6e9;
-  --NS-gray-94: #f0f0f2;
+  --ns-gray-text: #070721;
+  --ns-gray-10: #202037;
+  --ns-gray-20: #39394d;
+  --ns-gray-30: #515164;
+  --ns-gray-40: #6a6a7a;
+  --ns-gray-50: #838390;
+  --ns-gray-60: #9c9ca6;
+  --ns-gray-70: #b5b5bc;
+  --ns-gray-80: #cdcdd3;
+  --ns-gray-90: #e6e6e9;
+  --ns-gray-94: #f0f0f2;
 
   /* Special Colours */
-  --NS-error: #db0029;
-  --NS-succes: #009a42;
-  --NS-ov: #ff0098;
-  --NS-bus: #ff7700;
+  --ns-error: #db0029;
+  --ns-succes: #009a42;
+  --ns-ov: #ff0098;
+  --ns-bus: #ff7700;
 
   /* Link and hover colours */
-  --NS-link-blue: #0079d3;
-  --NS-hover-blue: #005ca0;
-  --NS-hover-yellow: #ffb519;
+  --ns-link-blue: #0079d3;
+  --ns-hover-blue: #005ca0;
+  --ns-hover-yellow: #ffb519;
 
   /* Transparency colours */
-  --NS-gray-alpha-60: #070721 (60%);
-  --NS-gray-alpha-15: #070721 (15%);
-  --NS-gray-alpha-10: #070721 (10%);
+  --ns-gray-alpha-60: #070721 (60%);
+  --ns-gray-alpha-15: #070721 (15%);
+  --ns-gray-alpha-10: #070721 (10%);
 }
 
 @font-face {
@@ -55,9 +55,9 @@
 header {
   width: 100vw;
   height: 10vw;
-  background-color: var(--NS-yellow);
+  background-color: var(--ns-yellow);
 }
 
-p{
-    font-size: 1em;
+p {
+  font-size: 1em;
 }
