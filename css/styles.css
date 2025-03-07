@@ -65,6 +65,10 @@ html {
   padding: 0;
 }
 
+/* ---------------------------------------------------------------------------------------- */
+/* ------------------------------------- Algemene code ------------------------------------ */
+/* ---------------------------------------------------------------------------------------- */
+
 body {
   background-color: var(--ns-gray-90);
   color: var(--ns-gray-text);
@@ -85,7 +89,10 @@ header p {
   font-weight: bold;
 }
 
-.start-container {
+#sectie-start,
+#formulier-1,
+#formulier-2,
+#formulier-3 {
   max-width: 1200px;
   margin: auto;
   display: grid;
@@ -100,7 +107,7 @@ header p {
 }
 
 section {
-  grid-column: 1/9;
+  grid-column: 1/13;
   grid-row: 1/1;
   background: linear-gradient(
     180deg,
@@ -110,7 +117,8 @@ section {
   );
   max-width: var(--ns-max-width-desktop);
   padding: var(--ns-gutter);
-  margin-top: -112px;
+  margin-top: -212px;
+  margin-bottom: var(--ns-gutter);
   box-shadow: 0 0.125rem 0 0 rgba(7, 7, 33, 0.15);
 }
 
@@ -133,6 +141,66 @@ h2 {
   color: var(--ns-blue);
   font-size: var(--ns-heading-l);
   font-weight: 400;
+}
+
+#pagina-selectie {
+  all: unset;
+  display: flex;
+  width: 30vw;
+  position: relative;
+  left: 13.5em;
+  top: -15em;
+}
+
+#sectie-start {
+  display: none;
+}
+
+#pagina-selectie {
+  /* display: none; */
+}
+
+#formulier-1,
+#formulier-2,
+#formulier-3 {
+  display: none;
+}
+
+/* -------- stukje code geschreven mbv Vasillis -------- */
+#formulier-1:target,
+#formulier-2:target,
+#formulier-3:target {
+  display: grid;
+}
+
+#pagina-selectie a[aria-current="page"] {
+  background-color: var(--ns-yellow);
+  font-weight: bold;
+  color: var(--ns-gray-text);
+}
+
+ol {
+  list-style-type: none;
+  display: flex;
+}
+
+ol li a {
+  background-color: var(--ns-gray-60);
+  padding: var(--ns-gutter);
+  margin-right: var(--ns-gutter);
+  font-size: var(--ns-heading-s);
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--ns-white);
+}
+
+ol li a:hover {
+  background-color: var(--ns-hover-yellow);
+}
+
+ol li a:active {
+  color: var(--ns-white);
 }
 
 section button {
@@ -159,10 +227,76 @@ section button:hover {
   transition: box-shadow 0.15s ease-in-out;
 }
 
-section:nth-of-type(2) {
+#sectie-start section {
+  grid-column: 1/9;
+  grid-row: 1/1;
+}
+
+#sectie-start section:nth-of-type(2) {
   grid-column: 9/13;
   grid-row: 1/1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.titel {
+  display: flex;
+  align-items: center;
+  font-size: var(--ns-heading-l);
+}
+
+.titel span {
+  background-color: var(--ns-yellow);
+  padding: var(--ns-gutter);
+  margin-right: var(--ns-gutter);
+}
+
+hr {
+  width: 60%;
+  margin: auto;
+}
+
+fieldset {
+  border: none;
+  margin-top: var(--ns-gutter);
+}
+
+legend {
+  font-size: var(--ns-heading-s);
+  font-weight: 400;
+  margin-bottom: var(--ns-gutter);
+}
+
+label {
+  display: inline-block;
+  width: 50%;
+  margin-right: var(--ns-gutter);
+}
+
+input {
+  width: 50%;
+  /* flex-grow: 1; */
+  padding: 1em;
+  border: 1px solid var(--ns-gray-20);
+  border-radius: var(--ns-border-radius);
+  margin-bottom: var(--ns-gutter);
+}
+
+fieldset p {
+  margin: var(--ns-gutter);
+  display: flex;
+  align-items: center;
+}
+
+input:user-valid {
+  outline: 3px solid var(--ns-succes);
+}
+
+input:user-invalid {
+  outline: 3px solid var(--ns-error);
+}
+
+:focus {
+  outline: 3px solid var(--ns-hover-blue);
 }

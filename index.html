@@ -20,7 +20,22 @@
         src="./imags/ns-banner.jpg"
         alt="Twee oude mensen die uit een trein stappen"
       />
-      <div class="start-container">
+
+      <section id="pagina-selectie">
+        <ol>
+          <li>
+            <a href="#formulier-1" aria-current="page">1</a>
+          </li>
+          <li>
+            <a href="#formulier-2">2</a>
+          </li>
+          <li>
+            <a href="#formulier-3">3</a>
+          </li>
+        </ol>
+      </section>
+
+      <div id="sectie-start">
         <section>
           <img src="./icons/general/logo-ns.svg" alt="NS Logo" />
           <h1>Aangifte 2023 Erfbelasting</h1>
@@ -57,71 +72,108 @@
           <button>Start</button>
         </section>
       </div>
-      <!-- 
-      <section id="pagina-1">
-        <form>
-          <fieldset>
-            <legend>Test</legend>
-            Nummer 1
-            <input type="radio" name="test" value="1" />
-            Nummer 2
-            <input type="radio" name="test" value="2" />
-          </fieldset>
 
-          <fieldset>
-            <legend>Test 2</legend>
-            <label>
-              <input type="text" /><small
-                >Hier komt een toelichting bij en je kan hier ook op
-                klikken</small
-              >
-            </label>
-          </fieldset>
-        </form>
-      </section> -->
+      <div id="formulier-1">
+        <section>
+          <div class="titel">
+            <span>1</span>
+            <h2>Gegevens van de overledene</h2>
+          </div>
+          <!-- <hr /> -->
 
-      <!-- <section>
-        <fieldset>
-          <legend>a1</legend>
-          <p>
-            <label
-              >Voorletter(s), tussen- voegsel(s) en achternaam
-              <input type="text"
-            /></label>
-          </p>
-          <p>
-            <label>Burgerservicenummer overledene <input type="text" /></label>
-          </p>
-          <p>
-            <label>Overlijdensdatum <input type="text" /></label>
-          </p>
-        </fieldset>
+          <form>
+            <fieldset>
+              <legend>Vul hier de gegevens in van de overledene</legend>
 
-        <fieldset>
-          <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-          <label for="vehicle1"> I have a bike</label><br />
-        </fieldset>
+              <label for="naam"> Naam overledene </label>
+              <input
+                type="text"
+                id="naam"
+                required
+                placeholder="Bijvoorbeeld: Karel de Groot "
+              />
 
-        <form>
-          <label for="birthdaytime">Birthday (date and time):</label>
-          <input type="datetime-local" id="birthdaytime" name="birthdaytime" />
-        </form>
+              <label for="bsn"> Burgerservicenummer overledene </label>
+              <input
+                type="text"
+                id="bsn"
+                placeholder="Bijvoorbeeld: 123456789"
+                title=""
+                pattern="[1-9][0-9]{8}"
+              />
 
-        <form>
-          <input type="radio" id="html" name="fav_language" value="HTML" />
-          <label for="html">HTML</label><br />
-          <input type="radio" id="css" name="fav_language" value="CSS" />
-          <label for="css">CSS</label><br />
-          <input
-            type="radio"
-            id="javascript"
-            name="fav_language"
-            value="JavaScript"
-          />
-          <label for="javascript">JavaScript</label>
-        </form>
-      </section> -->
+              <label for="datePickerId"> Overlijdensdatum </label>
+              <input type="date" id="datePickerId" required />
+
+              <label>
+                Was de overledene getrouwd of had de overledene een
+                geregistreerd partner op het moment van overlijden?
+              </label>
+              <input type="checkbox" required />
+
+              <label for="postcode">Postcode</label>
+              <input
+                type="text"
+                id="postcode"
+                required
+                placeholder="Bijvoorbeeld: 1234 AB"
+                pattern="[1-9][0-9]{3}[\s]?[A-Za-z]{2}"
+                title="Bijvoorbeeld: 1234 AB"
+              />
+            </fieldset>
+          </form>
+        </section>
+      </div>
+
+      <div id="formulier-2">
+        <section>
+          <div class="titel">
+            <span>2</span>
+            <h2>Gegevens gemachtigde</h2>
+          </div>
+
+          <form>
+            <fieldset>
+              <legend>Vul hier de gegevens in van de overledene</legend>
+
+              <label for="bsn2"> Burgerservicenummer gemachtigde </label>
+              <input
+                type="text"
+                id="bsn2"
+                placeholder="Bijvoorbeeld: 123456789"
+                title=""
+                pattern="[1-9][0-9]{8}"
+              />
+            </fieldset>
+          </form>
+        </section>
+      </div>
+
+      <div id="formulier-3">
+        <section>
+          <div class="titel">
+            <span>3</span>
+            <h2>Gegevens gemachtigde</h2>
+          </div>
+
+          <form>
+            <fieldset>
+              <legend>Vul hier de gegevens in van de overledene</legend>
+
+              <label for="bsn2"> Burgerservicenummer gemachtigde </label>
+              <input
+                type="text"
+                id="bsn2"
+                placeholder="Bijvoorbeeld: 123456789"
+                title=""
+                pattern="[1-9][0-9]{8}"
+              />
+            </fieldset>
+          </form>
+        </section>
+      </div>
     </main>
     <footer></footer>
+    <script src="./js/script.js"></script>
   </body>
 </html>
