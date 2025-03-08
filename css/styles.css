@@ -160,10 +160,12 @@ h2 {
   /* display: none; */
 }
 
-#formulier-1,
-#formulier-2,
-#formulier-3 {
-  display: none;
+@supports selector(:target) {
+  #formulier-1,
+  #formulier-2,
+  #formulier-3 {
+    display: none;
+  }
 }
 
 /* -------- stukje code geschreven mbv Vasillis -------- */
