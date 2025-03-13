@@ -9,9 +9,10 @@
   </head>
   <body>
     <header>
-      <img src="./icons/general/alert--small.svg" alt="Alert" />
-      <p>Dit is een schoolopdracht, dit is <u>geen officiëel</u> formulier</p>
-      <img src="./icons/general/alert--small.svg" alt="Alert" />
+      <div>
+        <img src="./icons/general/alert--small.svg" alt="Alert" />
+        <p>Dit is een schoolopdracht, dit is <u>geen officiëel</u> formulier</p>
+      </div>
     </header>
 
     <main>
@@ -37,6 +38,9 @@
           <li>
             <a href="#formulier-3">3</a>
           </li>
+          <li>
+            <a href="#formulier-einde">9</a>
+          </li>
         </ol>
       </section>
 
@@ -48,7 +52,6 @@
             Met dit formulier doet u aangifte erfbelasting voor een overredenen
             in 2023.
           </p>
-          <br />
           <p>
             Met dit formulier doet u aangifte voor de erfbelasting. U kunt
             aangifte doen als u erfgenaam bent of als u gemachtigd bent om
@@ -57,7 +60,6 @@
             zijn de personen en/of instellingen die iets krijgen uit de
             nalatenschap.
           </p>
-          <br />
           <p>we noemen het geen machinist meer, maar een <i>kapitrein</i></p>
         </section>
 
@@ -78,105 +80,189 @@
         </section>
       </div>
 
-      <div id="formulier-1">
-        <section>
-          <div class="titel">
-            <span>1</span>
-            <h2>Gegevens van de overledene</h2>
-          </div>
-          <!-- <hr /> -->
+      <!------------------------ Formulier 1 ------------------------>
 
-          <form>
+      <form id="formUser">
+        <div id="formulier-1">
+          <section>
+            <div class="titel">
+              <span>1</span>
+              <h2>Gegevens van de overledene</h2>
+            </div>
+
             <fieldset>
-              <legend>Vul hier de gegevens in van de overledene</legend>
+              <!----------------- 1a ----------------->
+              <legend>
+                <small>Vul hier de gegevens in van de overledene</small>
+              </legend>
 
               <label for="naam"> Naam overledene </label>
               <input
                 type="text"
                 id="naam"
+                name="name"
                 required
                 placeholder="Bijvoorbeeld: Karel de Groot "
+                pattern="[A-Za-z ]{2,}"
               />
+              <div class="errorMessage">
+                <img src="./icons/general/alert--small.svg" alt="Alert" />
+                <span
+                  >Voer een geldige naam in (alleen letters en spaties, minimaal
+                  2 tekens)</span
+                >
+              </div>
 
               <label for="bsn"> Burgerservicenummer overledene </label>
               <input
                 type="text"
                 id="bsn"
+                name="bsn"
                 placeholder="Bijvoorbeeld: 123456789"
                 title=""
                 pattern="[1-9][0-9]{8}"
               />
+              <div class="errorMessage">
+                <img src="./icons/general/alert--small.svg" alt="Alert" />
+                <span>Voer een geldig 9-cijferig BSN-nummer in</span>
+              </div>
 
               <label for="datePickerId"> Overlijdensdatum </label>
               <input type="date" id="datePickerId" required />
+
+              <!----------------- 1b ----------------->
 
               <label>
                 Was de overledene getrouwd of had de overledene een
                 geregistreerd partner op het moment van overlijden?
               </label>
-              <input type="checkbox" required />
 
-              <label for="postcode">Postcode</label>
-              <input
-                type="text"
-                id="postcode"
-                required
-                placeholder="Bijvoorbeeld: 1234 AB"
-                pattern="[1-9][0-9]{3}[\s]?[A-Za-z]{2}"
-                title="Bijvoorbeeld: 1234 AB"
-              />
+              <div>
+                <input
+                  type="radio"
+                  id="radioMarriedNo"
+                  name="married"
+                  value="No"
+                />
+                <label for="radioMarriedNo">Nee</label><br />
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="radioMarriedYes"
+                  name="married"
+                  value="Yes"
+                />
+                <label for="radioMarriedYes">Ja</label><br />
+              </div>
             </fieldset>
-          </form>
-        </section>
-      </div>
+            <fieldset id="formulier-1-b">
+              <label>
+                Hadden de overledene en diens echtgenoot of geregistreerd
+                partner huwelijkse of partner schaps- voorwaarden laten
+                vastleggen in een notariële akte?
+              </label>
 
-      <div id="formulier-2">
-        <section>
-          <div class="titel">
-            <span>2</span>
-            <h2>Gegevens gemachtigde</h2>
-          </div>
+              <div>
+                <input
+                  type="radio"
+                  id="deedConditionNo"
+                  name="deed condition"
+                  value="No"
+                />
+                <label for="deedConditionNo">Nee</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="deedConditionYes"
+                  name="deed condition"
+                  value="Yes"
+                />
+                <label for="deedConditionYes">
+                  Ja,
+                  <i> stuur een kopie van de akte mee met de aangifte. </i>
+                </label>
+              </div>
+            </fieldset>
 
-          <form>
+            <div class="nextButton">
+              <button>Volgende -></button>
+            </div>
+          </section>
+        </div>
+
+        <!------------------------ Formulier 2 ------------------------>
+
+        <div id="formulier-2">
+          <section>
+            <div class="titel">
+              <span>2</span>
+              <h2>Gegevens gemachtigde</h2>
+            </div>
+
             <fieldset>
-              <legend>Vul hier de gegevens in van de overledene</legend>
+              <legend>
+                <small>
+                  Vul de gegevens van de gemachtigde in. De gemachtigde is
+                  degene die namens 1 of meerdere personen en/of instellingen
+                  aangifte doet. Het invullen van een telefoonnummer of
+                  e-mailadres is niet verplicht, maar wel handig. Dan kunnen wij
+                  u makkelijker vragen stellen of uitleg geven
+                </small>
+              </legend>
 
-              <label for="bsn2"> Burgerservicenummer gemachtigde </label>
-              <input
-                type="text"
-                id="bsn2"
-                placeholder="Bijvoorbeeld: 123456789"
-                title=""
-                pattern="[1-9][0-9]{8}"
-              />
+              <p>
+                <label for="postcode">Postcode</label>
+                <input
+                  type="text"
+                  id="postcode"
+                  name="zipcode"
+                  required
+                  placeholder="Bijvoorbeeld: 1234 AB"
+                  pattern="[1-9][0-9]{3}[\s]?[A-Za-z]{2}"
+                  title="Bijvoorbeeld: 1234 AB"
+                />
+              </p>
+
+              <div class="errorMessage">
+                <img src="./icons/general/alert--small.svg" alt="Alert" />
+                <span
+                  >Voer een geldige Nederlandse postcode in (1234 AB of
+                  1234AB)</span
+                >
+              </div>
             </fieldset>
-          </form>
-        </section>
-      </div>
-
-      <div id="formulier-3">
-        <section>
-          <div class="titel">
-            <span>3</span>
-            <h2>Gegevens gemachtigde</h2>
-          </div>
-
-          <form>
+          </section>
+        </div>
+        <div id="formulier-3">
+          <section>
+            <div class="titel">
+              <span>3</span>
+              <h2>Gegevens gemachtigde</h2>
+            </div>
             <fieldset>
-              <legend>Vul hier de gegevens in van de overledene</legend>
-
-              <label for="bsn2"> Burgerservicenummer gemachtigde </label>
-              <input
-                type="text"
-                id="bsn2"
-                placeholder="Bijvoorbeeld: 123456789"
-                title=""
-                pattern="[1-9][0-9]{8}"
-              />
+              <legend>
+                <small>Vul hier de gegevens in van de overledene</small>
+              </legend>
             </fieldset>
-          </form>
-        </section>
-      </div>
+          </section>
+        </div>
+        <div id="formulier-einde">
+          <section>
+            <div class="titel">
+              <span>9</span>
+              <h2>Einde</h2>
+            </div>
+
+            <fieldset>
+              <legend>Weet je zeker dat je alle hebt ingevuld?</legend>
+              <button>Opslaan</button>
+              <button>Printen</button>
+            </fieldset>
+          </section>
+        </div>
+      </form>
     </main>
     <footer></footer>
     <script src="./js/script.js"></script>
