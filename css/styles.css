@@ -128,9 +128,13 @@ section {
   }
 }
 
+/* ---------------------------------------------------------------------------------------- */
+/* -------------------------------------- Formulieren ------------------------------------- */
+/* ---------------------------------------------------------------------------------------- */
+
 #sectie-start {
   max-width: 1200px;
-  margin: auto;
+  margin: -4em auto 0 auto;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(1, 1fr);
@@ -140,11 +144,11 @@ section {
 
 #formulier-1,
 #formulier-2,
-#formulier-3,
 #formulier-einde {
   width: 100%;
   max-width: var(--ns-max-width-desktop);
   margin: auto;
+  scroll-margin-top: 15em;
 }
 
 #banner {
@@ -181,37 +185,6 @@ h2 {
   max-width: var(--ns-max-width-desktop);
 }
 
-/* #sectie-start {
-  display: none;
-} */
-
-/* #pagina-selectie {
-  display: none;
-} */
-
-/* #formulier-1 {
-  display: none;
-} */
-
-/* @supports selector(:target) {
-  #formulier-1,
-  #formulier-2,
-  #formulier-3 {
-    display: none;
-  }
-} */
-
-/* -------- stukje code geschreven mbv Vasillis -------- */
-/* #formulier-1:target,
-#formulier-2:target,
-#formulier-3:target {
-  display: grid;
-} */
-
-/* #formulier-1-b {
-  display: none;
-} */
-
 #pagina-selectie a[aria-current="page"] {
   background-color: var(--ns-yellow);
   font-weight: bold;
@@ -245,16 +218,17 @@ ol {
     }
   }
 }
-
-button {
-  background-color: var(--ns-lightBlue);
-  border: none;
-  border-radius: 4px;
-  color: #fff;
+button,
+.nextButton a {
   display: inline-block;
+  color: #fff;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5625rem;
+  background-color: var(--ns-lightBlue);
+  border: none;
+  border-radius: 4px;
+
   max-width: 7.5rem;
   padding: 0.625rem 1.125rem;
   position: relative;
@@ -265,15 +239,27 @@ button {
   margin-top: var(--ns-gutter);
 }
 
-button:hover {
-  box-shadow: inset 0 -3rem 0 var(--ns-blue);
-  transition: box-shadow 0.15s ease-in-out;
-}
-
 .nextButton {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+}
+
+#sectie-start .nextButton {
+  justify-content: flex-start;
+}
+
+#buttonLeft {
+  justify-content: flex-start;
+
+  & a {
+    background-color: var(--ns-succes);
+  }
+
+  & a:nth-of-type(2) {
+    background-color: var(--ns-error);
+    margin-left: var(--ns-gutter);
+  }
 }
 
 #sectie-start section {
@@ -310,7 +296,6 @@ fieldset {
   border: none;
   display: flex;
   flex-direction: column;
-  margin-top: var(--ns-gutter);
 
   & p {
     margin: var(--ns-gutter);
@@ -330,8 +315,11 @@ label {
   display: inline-block;
   max-width: 50%;
   margin-right: var(--ns-gutter);
-  margin-top: var(--ns-gutter);
-  margin-bottom: 4px;
+  margin-top: 34px;
+
+  & span {
+    color: var(--ns-error);
+  }
 }
 
 div div label {
@@ -341,7 +329,6 @@ div div label {
 
 input {
   width: 50%;
-  /* flex-grow: 1; */
   padding: 1em;
   border: 1px solid var(--ns-gray-20);
   border-radius: var(--ns-border-radius);
@@ -349,7 +336,8 @@ input {
 
 input[type="radio"] {
   width: 1em;
-  accent-color: rgb(255, 255, 128);
+  accent-color: var(--ns-blue);
+  border: none;
 }
 
 fieldset input:user-valid {
@@ -383,9 +371,173 @@ input[type="radio"]:focus {
   }
 }
 
+#formulier-1-d {
+  margin-top: var(--ns-gutter);
+}
+
 input:invalid:not(:focus):not(:placeholder-shown) + .errorMessage {
   display: flex;
 }
+
+/* --------------- Formulier 2 --------------- */
+
+#acquirer-1,
+#acquirer-2,
+#acquirer-3 {
+  background-color: var(--ns-gray-94);
+  margin-top: var(--ns-gutter);
+  padding: var(--ns-gutter);
+}
+
+/* ---------------------------------------------------------------------------------------- */
+/* ------------------------------------- Aan/Uit secties ---------------------------------- */
+/* ---------------------------------------------------------------------------------------- */
+
+@supports selector(:target) {
+  #formulier-1,
+  #formulier-2,
+  #formulier-einde {
+    display: none;
+  }
+}
+
+/* -------- stukje code geschreven mbv Vasillis -------- */
+#formulier-1:target,
+#formulier-2:target,
+#formulier-einde:target {
+  display: grid;
+}
+
+body:not(:has(:target)) #pagina-selectie {
+  display: none;
+}
+
+body:has(:target) #sectie-start {
+  display: none;
+}
+
+#formulier-1-b,
+#formulier-1-c,
+#formulier-1-d {
+  display: none;
+  background-color: var(--ns-gray-94);
+  padding: var(--ns-gutter);
+
+  & label:first-child {
+    margin: 0;
+  }
+}
+
+body:has([value="Married-Yes"]:checked) #formulier-1-b {
+  display: flex;
+}
+
+body:has([value="Childeren-Yes"]:checked) #formulier-1-c {
+  display: flex;
+}
+
+body:has([value="Will-Yes"]:checked) #formulier-1-d {
+  display: flex;
+}
+
+/* --------------- Formulier 2 --------------- */
+#acquirer-1,
+#acquirer-2,
+#acquirer-3 {
+  display: none;
+}
+
+body:has([value="acquirerdeclaration-Yes"]:checked) #acquirer-1 {
+  display: flex;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+/* ---------------------------------------- Tooltip --------------------------------------- */
+/* ---------------------------------------------------------------------------------------- */
+/* Bron: https://www.w3schools.com/howto/howto_css_tooltip.asp  */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  color: var(--ns-error);
+  margin-right: var(--ns-gutter);
+
+  & img {
+    width: 1em;
+    max-width: 100%;
+    filter: brightness(0) saturate(100%) invert(29%) sepia(98%) saturate(3490%)
+      hue-rotate(190deg) brightness(96%) contrast(101%);
+    margin: 0;
+  }
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -70px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+/* -------------------------------------- eind form --------------------------------------- */
+/* ---------------------------------------------------------------------------------------- */
+
+/* #formulier-einde {
+  all: unset;
+} */
+
+.formCheck {
+  background-color: var(--ns-gray-94);
+  padding: var(--ns-gutter);
+  margin-bottom: var(--ns-gutter);
+}
+
+#generatePDF {
+  max-width: 10em;
+  background-color: var(--ns-blue);
+}
+
+#resetForm {
+  max-width: 10em;
+  background-color: var(--ns-error);
+}
+
+/* ---------------------------------------------------------------------------------------- */
+/* ---------------------------------------- Mobile ---------------------------------------- */
+/* ---------------------------------------------------------------------------------------- */
 
 @media only screen and (max-width: 600px) {
   header {
