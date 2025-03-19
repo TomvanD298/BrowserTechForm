@@ -74,6 +74,10 @@ function setupFormPersistence() {
     loadFormData();
 }
 
+// ------------------------------------------------------------- //
+// ------------------------- Create PDF ------------------------ //
+// ------------------------------------------------------------- //
+
 // Function to generate a PDF with form data
 function generatePdf() {
     const savedData = JSON.parse(localStorage.getItem('Real-NS-Tax-Form'));
@@ -82,21 +86,24 @@ function generatePdf() {
         return;
     }
 
-    // Create a new printable section
     let pdfContent = document.createElement('div');
     pdfContent.style.fontFamily = "Arial, sans-serif";
     pdfContent.style.padding = "20px";
-
     pdfContent.innerHTML = `<h2>Form Data</h2>`;
-    
-    // Format and add each field to the PDF content
+
     Object.keys(savedData).forEach(key => {
         pdfContent.innerHTML += `<p><strong>${key}:</strong> ${savedData[key]}</p>`;
     });
 
-    // Convert this dynamically created content to a PDF
-    html2pdf().from(pdfContent).save();
+    // Generate a dynamic filename based on the user's name (if available)
+    let fileName = savedData.name ? `Form_${savedData.name}.pdf` : "NS-Erfbelasting2023.pdf";
+
+    html2pdf().from(pdfContent).save(fileName);
 }
+
+// ------------------------------------------------------------- //
+// ------------------------- Reset Form ------------------------ //
+// ------------------------------------------------------------- //
 
 // Function to clear the form and localStorage
 function clearFormData() {
