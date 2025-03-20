@@ -448,7 +448,7 @@ body:has([value="Will-Yes"]:checked) #formulier-1-d {
 }
 
 body:has([value="acquirerdeclaration-Yes"]:checked) #acquirer-1 {
-  display: flex;
+  display: block;
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -577,5 +577,11 @@ body:has([value="acquirerdeclaration-Yes"]:checked) #acquirer-1 {
 
   ol li a {
     padding: 8px;
+  }
+}
+
+@media print {
+  .page-break {
+    page-break-before: always;
   }
 }

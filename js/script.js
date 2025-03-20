@@ -20,6 +20,8 @@ document.querySelectorAll("#pagina-selectie a").forEach(link => {
 // ------------------------- Save Form ------------------------- //
 // ------------------------------------------------------------- //
 // Function to save form data to localStorage
+// Dit stukje code is medemogelijk gemaakt door Chris.
+
 function saveFormData() {
     const inputs = document.querySelectorAll('#formUser input, #formUser select, #formUser textarea');
     const formData = {};
@@ -39,6 +41,9 @@ function saveFormData() {
     localStorage.setItem('Real-NS-Tax-Form', JSON.stringify(formData));
 }
 
+// ------------------------------------------------------------- //
+// ------------------------- Load data ------------------------- //
+// ------------------------------------------------------------- //
 // Function to load form data from localStorage
 function loadFormData() {
     const savedData = localStorage.getItem('Real-NS-Tax-Form');
@@ -75,8 +80,11 @@ function setupFormPersistence() {
 }
 
 // ------------------------------------------------------------- //
-// ------------------------- Create PDF ------------------------ //
+// ------------------------ Generate PDF ----------------------- //
 // ------------------------------------------------------------- //
+// Gemaakt met hulp van GPT, het werkt alleen niet omdat het een NPM pakketje is, dus ik heb het geprobeerd
+// het te verwerken voor dit. het werkt soort van.
+
 
 // Function to generate a PDF with form data
 function generatePdf() {
@@ -86,25 +94,36 @@ function generatePdf() {
         return;
     }
 
+    // Create a new printable section
     let pdfContent = document.createElement('div');
     pdfContent.style.fontFamily = "Arial, sans-serif";
     pdfContent.style.padding = "20px";
-    pdfContent.innerHTML = `<h2>Form Data</h2>`;
 
+    pdfContent.innerHTML = `<h2>NS Erfbelasting 2023</h2>`;
+    
+    // Format and add each field to the PDF content
     Object.keys(savedData).forEach(key => {
-        pdfContent.innerHTML += `<p><strong>${key}:</strong> ${savedData[key]}</p>`;
+        pdfContent.innerHTML += `<p><b>${key}:</b> ${savedData[key]}</p>`;
     });
 
-    // Generate a dynamic filename based on the user's name (if available)
-    let fileName = savedData.name ? `Form_${savedData.name}.pdf` : "NS-Erfbelasting2023.pdf";
+    // Set up the options to remove margins and improve layout
+    const options = {
+        margin: [-20, 10, 100, 10],  // Adjust margins if needed
+        filename: "NS-Erfbelasting-2023.pdf",
+        html2canvas: {
+            scale: 2,               // Higher scale for better quality
+            logging: true           // Enable logging to troubleshoot rendering issues
+        }
+    };
 
-    html2pdf().from(pdfContent).save(fileName);
+    // Convert this dynamically created content to a PDF with custom options
+    html2pdf().from(pdfContent).set(options).save();
 }
 
-// ------------------------------------------------------------- //
-// ------------------------- Reset Form ------------------------ //
-// ------------------------------------------------------------- //
 
+// ------------------------------------------------------------- //
+// ------------------------- clear Form ------------------------ //
+// ------------------------------------------------------------- //
 // Function to clear the form and localStorage
 function clearFormData() {
     localStorage.removeItem('Real-NS-Tax-Form'); // Remove saved form data
@@ -114,3 +133,37 @@ function clearFormData() {
 
 // Initialize form persistence on DOM load
 document.addEventListener('DOMContentLoaded', setupFormPersistence);
+
+
+
+// ------------------------------------------------------------- //
+// ---------------------- verkrijger knop ---------------------- //
+// ------------------------------------------------------------- //
+
+
+// -------- knop verkrijger 1
+
+document.getElementById("showBtn1").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    document.getElementById("acquirer-2").style.display = "block";
+});
+
+// -------- knop verkrijger 2
+
+document.getElementById("showBtn2").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    document.getElementById("acquirer-3").style.display = "block";
+});
+
+document.getElementById("hideBtn2").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    document.getElementById("acquirer-2").style.display = "none";
+});
+
+
+// -------- knop verkrijger 3
+
+document.getElementById("hideBtn3").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    document.getElementById("acquirer-3").style.display = "none";
+});

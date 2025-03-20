@@ -16,11 +16,6 @@
     </header>
 
     <main>
-      <!-- <img
-        id="banner"
-        src="./imags/ns-banner.jpg"
-        alt="Twee oude mensen die uit een trein stappen"
-      /> -->
       <img
         id="banner"
         src="./imags/boy-on-cough.jpg"
@@ -36,13 +31,7 @@
             <a href="#formulier-2">2</a>
           </li>
           <li>
-            <a href="#formulier-2">3</a>
-          </li>
-          <li>
-            <a href="#formulier-2">4</a>
-          </li>
-          <li>
-            <a href="#formulier-einde">5</a>
+            <a href="#formulier-einde">3</a>
           </li>
         </ol>
       </section>
@@ -138,7 +127,7 @@
                 name="bsn"
                 placeholder="Bijvoorbeeld: 123456789"
                 title=""
-                pattern="[1-9][0-9]{8}"
+                pattern="[1-9][0-9]{8,8}"
               />
               <div class="errorMessage">
                 <img src="./icons/general/alert--small.svg" alt="Alert" />
@@ -265,10 +254,15 @@
                 <label for="settlementClauseYes"> Ja </label>
               </div>
 
-              <label for="DeathdatePicker">
+              <label for="SettlementDate">
                 Datum huwelijkse of partnerschapsvoorwaarden
               </label>
-              <input type="date" id="DeathdatePicker" required />
+              <input
+                type="date"
+                name="date settlement"
+                id="SettlementDate"
+                required
+              />
             </fieldset>
 
             <!----------------- 1C ----------------->
@@ -409,7 +403,7 @@
               <input
                 type="text"
                 id="NotaryName"
-                name="name"
+                name="NotaryName"
                 placeholder="Bijvoorbeeld: Karel de Groot "
                 pattern="[A-Za-z ]{2,}"
               />
@@ -500,323 +494,326 @@
 
             <!----------------- verkrijger 1 ----------------->
 
-            <fieldset id="acquirer-1">
-              <h3>Verkrijger 1</h3>
-              <label for="acquirer1-bsn">
-                Burgerservicenummer
-                <div class="tooltip">
-                  *
-                  <span class="tooltiptext">Vereist</span>
+            <div id="acquirer-1">
+              <fieldset>
+                <h3>Verkrijger 1</h3>
+                <label for="acquirer1-bsn">
+                  Burgerservicenummer
+                  <div class="tooltip">
+                    *
+                    <span class="tooltiptext">Vereist</span>
+                  </div>
+                </label>
+                <input
+                  type="text"
+                  id="acquirer1-bsn"
+                  name="acquirer1-bsn"
+                  placeholder="Bijvoorbeeld: 123456789"
+                  title=""
+                  pattern="[1-9][0-9]{8,8}"
+                />
+                <div class="errorMessage">
+                  <img src="./icons/general/alert--small.svg" alt="Alert" />
+                  <span>Voer een geldig 9-cijferig BSN-nummer in</span>
                 </div>
-              </label>
-              <input
-                type="text"
-                id="acquirer1-bsn"
-                name="acquirer1-bsn"
-                placeholder="Bijvoorbeeld: 123456789"
-                title=""
-                pattern="[1-9][0-9]{8}"
-              />
-              <div class="errorMessage">
-                <img src="./icons/general/alert--small.svg" alt="Alert" />
-                <span>Voer een geldig 9-cijferig BSN-nummer in</span>
-              </div>
 
-              <label for="acquirer1-naam">
-                Naam overledene
-                <div class="tooltip">
-                  *
-                  <span class="tooltiptext">Vereist</span>
+                <label for="acquirer1-naam">
+                  Naam overledene
+                  <div class="tooltip">
+                    *
+                    <span class="tooltiptext">Vereist</span>
+                  </div>
+                </label>
+                <input
+                  type="text"
+                  id="acquirer1-naam"
+                  name="acquirer1-name"
+                  required
+                  placeholder="Bijvoorbeeld: Karel de Groot "
+                  pattern="[A-Za-z ]{2,}"
+                />
+                <div class="errorMessage">
+                  <img src="./icons/general/alert--small.svg" alt="Alert" />
+                  <span
+                    >Voer een geldige naam in (alleen letters en spaties,
+                    minimaal 2 tekens)</span
+                  >
                 </div>
-              </label>
-              <input
-                type="text"
-                id="acquirer1-naam"
-                name="acquirer1-name"
-                required
-                placeholder="Bijvoorbeeld: Karel de Groot "
-                pattern="[A-Za-z ]{2,}"
-              />
-              <div class="errorMessage">
-                <img src="./icons/general/alert--small.svg" alt="Alert" />
-                <span
-                  >Voer een geldige naam in (alleen letters en spaties, minimaal
-                  2 tekens)</span
+
+                <label>
+                  Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
+                  vermogen?
+                  <div class="tooltip">
+                    *
+                    <span class="tooltiptext">Vereist</span>
+                  </div></label
                 >
-              </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="acquirer1-capital"
+                    name="acquirer1-capital"
+                    value="acquirer1-capital-No"
+                  />
+                  <label for="acquirer1-capitalNo">Nee</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="acquirer1-capitalYes"
+                    name="acquirer1-capital"
+                    value="acquirer1-capital-Yes"
+                  />
+                  <label for="acquirer1-capitalYes"> Ja </label>
+                </div>
 
-              <label>
-                Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
-                vermogen?
-                <div class="tooltip">
-                  *
-                  <span class="tooltiptext">Vereist</span>
-                </div></label
-              >
-              <div>
-                <input
-                  type="radio"
-                  id="acquirer1-capital"
-                  name="acquirer1-capital"
-                  value="acquirer1-capital-No"
-                />
-                <label for="acquirer1-capitalNo">Nee</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  id="acquirer1-capitalYes"
-                  name="acquirer1-capital"
-                  value="acquirer1-capital-Yes"
-                />
-                <label for="acquirer1-capitalYes"> Ja </label>
-              </div>
-
-              <label>
-                Doet deze verkrijger een beroep op diens legitieme portie
-                (wettelijke erfdeel)?
-                <div class="tooltip">
-                  *
-                  <span class="tooltiptext">Vereist</span>
-                </div></label
-              >
-              <div>
-                <input
-                  type="radio"
-                  id="acquirer1-legalNo"
-                  name="acquirer1-legal"
-                  value="acquirer1-legal-No"
-                />
-                <label for="acquirer1-legalNo">Nee</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  id="acquirer1-legalYes"
-                  name="acquirer1-legal"
-                  value="acquirer1-legal-Yes"
-                />
-                <label for="acquirer1-legalYes"> Ja </label>
-              </div>
-
+                <label>
+                  Doet deze verkrijger een beroep op diens legitieme portie
+                  (wettelijke erfdeel)?
+                  <div class="tooltip">
+                    *
+                    <span class="tooltiptext">Vereist</span>
+                  </div></label
+                >
+                <div>
+                  <input
+                    type="radio"
+                    id="acquirer1-legalNo"
+                    name="acquirer1-legal"
+                    value="acquirer1-legal-No"
+                  />
+                  <label for="acquirer1-legalNo">Nee</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="acquirer1-legalYes"
+                    name="acquirer1-legal"
+                    value="acquirer1-legal-Yes"
+                  />
+                  <label for="acquirer1-legalYes"> Ja </label>
+                </div>
+              </fieldset>
               <div class="nextButton" id="buttonLeft">
-                <a>+ Verkrijger</a>
+                <a href="#" id="showBtn1">+ Verkrijger</a>
               </div>
-            </fieldset>
-
+            </div>
             <!----------------- verkrijger 2 ----------------->
 
-            <fieldset id="acquirer-2">
-              <h3>Verkrijger 2</h3>
-              <label for="acquirer2-bsn">
-                Burgerservicenummer
-                <div class="tooltip">
-                  *
-                  <span class="tooltiptext">Vereist</span>
+            <div id="acquirer-2">
+              <fieldset>
+                <h3>Verkrijger 2</h3>
+                <label for="acquirer2-bsn">
+                  Burgerservicenummer
+                  <div class="tooltip">
+                    *
+                    <span class="tooltiptext">Vereist</span>
+                  </div>
+                </label>
+                <input
+                  type="text"
+                  id="acquirer2-bsn"
+                  name="acquirer2-bsn"
+                  placeholder="Bijvoorbeeld: 123456789"
+                  title=""
+                  pattern="[1-9][0-9]{8}"
+                />
+                <div class="errorMessage">
+                  <img src="./icons/general/alert--small.svg" alt="Alert" />
+                  <span>Voer een geldig 9-cijferig BSN-nummer in</span>
                 </div>
-              </label>
-              <input
-                type="text"
-                id="acquirer2-bsn"
-                name="acquirer2-bsn"
-                placeholder="Bijvoorbeeld: 123456789"
-                title=""
-                pattern="[1-9][0-9]{8}"
-              />
-              <div class="errorMessage">
-                <img src="./icons/general/alert--small.svg" alt="Alert" />
-                <span>Voer een geldig 9-cijferig BSN-nummer in</span>
-              </div>
 
-              <label for="acquirer2-naam">
-                Naam overledene
-                <div class="tooltip">
-                  *
-                  <span class="tooltiptext">Vereist</span>
+                <label for="acquirer2-naam">
+                  Naam overledene
+                  <div class="tooltip">
+                    *
+                    <span class="tooltiptext">Vereist</span>
+                  </div>
+                </label>
+                <input
+                  type="text"
+                  id="acquirer2-naam"
+                  name="acquirer2-name"
+                  required
+                  placeholder="Bijvoorbeeld: Karel de Groot "
+                  pattern="[A-Za-z ]{2,}"
+                />
+                <div class="errorMessage">
+                  <img src="./icons/general/alert--small.svg" alt="Alert" />
+                  <span
+                    >Voer een geldige naam in (alleen letters en spaties,
+                    minimaal 2 tekens)</span
+                  >
                 </div>
-              </label>
-              <input
-                type="text"
-                id="acquirer2-naam"
-                name="acquirer2-name"
-                required
-                placeholder="Bijvoorbeeld: Karel de Groot "
-                pattern="[A-Za-z ]{2,}"
-              />
-              <div class="errorMessage">
-                <img src="./icons/general/alert--small.svg" alt="Alert" />
-                <span
-                  >Voer een geldige naam in (alleen letters en spaties, minimaal
-                  2 tekens)</span
+
+                <label>
+                  Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
+                  vermogen?
+                  <div class="tooltip">
+                    *
+                    <span class="tooltiptext">Vereist</span>
+                  </div></label
                 >
-              </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="acquirer2-capital"
+                    name="acquirer2-capital"
+                    value="acquirer2-capital-No"
+                  />
+                  <label for="acquirer2-capitalNo">Nee</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="acquirer2-capitalYes"
+                    name="acquirer2-capital"
+                    value="acquirer2-capital-Yes"
+                  />
+                  <label for="acquirer2-capitalYes"> Ja </label>
+                </div>
 
-              <label>
-                Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
-                vermogen?
-                <div class="tooltip">
-                  *
-                  <span class="tooltiptext">Vereist</span>
-                </div></label
-              >
-              <div>
-                <input
-                  type="radio"
-                  id="acquirer2-capital"
-                  name="acquirer2-capital"
-                  value="acquirer2-capital-No"
-                />
-                <label for="acquirer2-capitalNo">Nee</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  id="acquirer2-capitalYes"
-                  name="acquirer2-capital"
-                  value="acquirer2-capital-Yes"
-                />
-                <label for="acquirer2-capitalYes"> Ja </label>
-              </div>
-
-              <label>
-                Doet deze verkrijger een beroep op diens legitieme portie
-                (wettelijke erfdeel)?
-                <div class="tooltip">
-                  *
-                  <span class="tooltiptext">Vereist</span>
-                </div></label
-              >
-              <div>
-                <input
-                  type="radio"
-                  id="acquirer2-legalNo"
-                  name="acquirer2-legal"
-                  value="acquirer2-legal-No"
-                />
-                <label for="acquirer2-legalNo">Nee</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  id="acquirer2-legalYes"
-                  name="acquirer2-legal"
-                  value="acquirer2-legal-Yes"
-                />
-                <label for="acquirer2-legalYes"> Ja </label>
-              </div>
+                <label>
+                  Doet deze verkrijger een beroep op diens legitieme portie
+                  (wettelijke erfdeel)?
+                  <div class="tooltip">
+                    *
+                    <span class="tooltiptext">Vereist</span>
+                  </div></label
+                >
+                <div>
+                  <input
+                    type="radio"
+                    id="acquirer2-legalNo"
+                    name="acquirer2-legal"
+                    value="acquirer2-legal-No"
+                  />
+                  <label for="acquirer2-legalNo">Nee</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="acquirer2-legalYes"
+                    name="acquirer2-legal"
+                    value="acquirer2-legal-Yes"
+                  />
+                  <label for="acquirer2-legalYes"> Ja </label>
+                </div>
+              </fieldset>
 
               <div class="nextButton" id="buttonLeft">
-                <a>+ Verkrijger</a>
-                <a>- Verkrijger</a>
+                <a href="#" id="showBtn2">+ Verkrijger</a>
+                <a href="#" id="hideBtn2">- Verkrijger</a>
               </div>
-            </fieldset>
-
+            </div>
             <!----------------- verkrijger 3 ----------------->
 
-            <fieldset id="acquirer-3">
-              <h3>Verkrijger 3</h3>
-              <label for="acquirer3-bsn">
-                Burgerservicenummer
-                <div class="tooltip">
-                  *
-                  <span class="tooltiptext">Vereist</span>
+            <div id="acquirer-3">
+              <fieldset>
+                <h3>Verkrijger 3</h3>
+                <label for="acquirer3-bsn">
+                  Burgerservicenummer
+                  <div class="tooltip">
+                    *
+                    <span class="tooltiptext">Vereist</span>
+                  </div>
+                </label>
+                <input
+                  type="text"
+                  id="acquirer3-bsn"
+                  name="acquirer3-bsn"
+                  placeholder="Bijvoorbeeld: 123456789"
+                  title=""
+                  pattern="[1-9][0-9]{8}"
+                />
+                <div class="errorMessage">
+                  <img src="./icons/general/alert--small.svg" alt="Alert" />
+                  <span>Voer een geldig 9-cijferig BSN-nummer in</span>
                 </div>
-              </label>
-              <input
-                type="text"
-                id="acquirer3-bsn"
-                name="acquirer3-bsn"
-                placeholder="Bijvoorbeeld: 123456789"
-                title=""
-                pattern="[1-9][0-9]{8}"
-              />
-              <div class="errorMessage">
-                <img src="./icons/general/alert--small.svg" alt="Alert" />
-                <span>Voer een geldig 9-cijferig BSN-nummer in</span>
-              </div>
 
-              <label for="acquirer3-naam">
-                Naam overledene
-                <div class="tooltip">
-                  *
-                  <span class="tooltiptext">Vereist</span>
+                <label for="acquirer3-naam">
+                  Naam overledene
+                  <div class="tooltip">
+                    *
+                    <span class="tooltiptext">Vereist</span>
+                  </div>
+                </label>
+                <input
+                  type="text"
+                  id="acquirer3-naam"
+                  name="acquirer3-name"
+                  required
+                  placeholder="Bijvoorbeeld: Karel de Groot "
+                  pattern="[A-Za-z ]{2,}"
+                />
+                <div class="errorMessage">
+                  <img src="./icons/general/alert--small.svg" alt="Alert" />
+                  <span
+                    >Voer een geldige naam in (alleen letters en spaties,
+                    minimaal 2 tekens)</span
+                  >
                 </div>
-              </label>
-              <input
-                type="text"
-                id="acquirer3-naam"
-                name="acquirer3-name"
-                required
-                placeholder="Bijvoorbeeld: Karel de Groot "
-                pattern="[A-Za-z ]{2,}"
-              />
-              <div class="errorMessage">
-                <img src="./icons/general/alert--small.svg" alt="Alert" />
-                <span
-                  >Voer een geldige naam in (alleen letters en spaties, minimaal
-                  2 tekens)</span
+
+                <label>
+                  Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
+                  vermogen?
+                  <div class="tooltip">
+                    *
+                    <span class="tooltiptext">Vereist</span>
+                  </div></label
                 >
-              </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="acquirer3-capital"
+                    name="acquirer3-capital"
+                    value="acquirer3-capital-No"
+                  />
+                  <label for="acquirer3-capitalNo">Nee</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="acquirer3-capitalYes"
+                    name="acquirer3-capital"
+                    value="acquirer3-capital-Yes"
+                  />
+                  <label for="acquirer3-capitalYes"> Ja </label>
+                </div>
 
-              <label>
-                Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
-                vermogen?
-                <div class="tooltip">
-                  *
-                  <span class="tooltiptext">Vereist</span>
-                </div></label
-              >
-              <div>
-                <input
-                  type="radio"
-                  id="acquirer3-capital"
-                  name="acquirer3-capital"
-                  value="acquirer3-capital-No"
-                />
-                <label for="acquirer3-capitalNo">Nee</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  id="acquirer3-capitalYes"
-                  name="acquirer3-capital"
-                  value="acquirer3-capital-Yes"
-                />
-                <label for="acquirer3-capitalYes"> Ja </label>
-              </div>
-
-              <label>
-                Doet deze verkrijger een beroep op diens legitieme portie
-                (wettelijke erfdeel)?
-                <div class="tooltip">
-                  *
-                  <span class="tooltiptext">Vereist</span>
-                </div></label
-              >
-              <div>
-                <input
-                  type="radio"
-                  id="acquirer3-legalNo"
-                  name="acquirer3-legal"
-                  value="acquirer3-legal-No"
-                />
-                <label for="acquirer3-legalNo">Nee</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  id="acquirer3-legalYes"
-                  name="acquirer3-legal"
-                  value="acquirer3-legal-Yes"
-                />
-                <label for="acquirer3-legalYes"> Ja </label>
-              </div>
+                <label>
+                  Doet deze verkrijger een beroep op diens legitieme portie
+                  (wettelijke erfdeel)?
+                  <div class="tooltip">
+                    *
+                    <span class="tooltiptext">Vereist</span>
+                  </div></label
+                >
+                <div>
+                  <input
+                    type="radio"
+                    id="acquirer3-legalNo"
+                    name="acquirer3-legal"
+                    value="acquirer3-legal-No"
+                  />
+                  <label for="acquirer3-legalNo">Nee</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="acquirer3-legalYes"
+                    name="acquirer3-legal"
+                    value="acquirer3-legal-Yes"
+                  />
+                  <label for="acquirer3-legalYes"> Ja </label>
+                </div>
+              </fieldset>
 
               <div class="nextButton" id="buttonLeft">
-                <a>+ Verkrijger</a>
-                <a>- Verkrijger</a>
+                <a href="#" id="showBtn3">+ Verkrijger</a>
+                <a href="#" id="hideBtn3">- Verkrijger</a>
               </div>
-            </fieldset>
+            </div>
 
             <div class="nextButton">
               <a href="#formulier-einde">Volgende -></a>
@@ -835,19 +832,9 @@
             <fieldset>
               <legend>Weet je zeker dat je alles goed hebt ingevuld?</legend>
             </fieldset>
-            <!-- <button>Opslaan</button>
-              <button type="submit">Printen</button> -->
 
             <fieldset class="formCheck">
               <h3>Pagina 1</h3>
-              <!-- <label>Naam overledene</label>
-              <input name="name deceased" disabled />
-              <label>Burgerservicenummer overledene</label>
-              <input name="bsn" disabled />
-              <label>Postcode</label>
-              <input name="zipcode" disabled />
-              <label>Overlijdensdatum</label>
-              <input name="date deceased" disabled /> -->
             </fieldset>
 
             <fieldset class="formCheck">
