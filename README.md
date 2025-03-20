@@ -69,6 +69,16 @@
 <h2>Week 4 --- [17-03]</h2>
  <details>
   <summary>Woensdag</summary>
-  <h3>Workshop</h3>
   <h3>Gedaan vandaag</h3>
+  <p> Vandaag heb ik echt veel gedaan, ik heb veel bugs gefixt en ik heb de verkrijger pagina gemaakt. Je kan nu verkrijgers toevoegen als je er meer nodig hebt. </p>
+  <img width="500" alt="Scherm­afbeelding 2025-03-19 om 17 23 35" src="https://github.com/user-attachments/assets/32c6d39b-dbd7-4c48-ae18-739772f42516" />
+
+  <p>Ook ben ik begonnen met het maken van een download to pdf knop. dit was erg veel gekloot. Ik was begonnen en kwam er later achter dat het een NPM pakketje is.<br>
+Dus het werkt voor de helft. Helaas heb ik geen tijd meer om het werkend te krijgen.</p>
+<img width="300" alt="Scherm­afbeelding 2025-03-19 om 17 23 16" src="https://github.com/user-attachments/assets/ea648c34-d016-4bdf-997b-344c40c3a1d7" />
+<img width="300" alt="Scherm­afbeelding 2025-03-19 om 17 23 23" src="https://github.com/user-attachments/assets/269b3733-57bd-4d30-b539-a131f17a8219" />
+<img width="100" alt="Scherm­afbeelding 2025-03-19 om 17 50 01" src="https://github.com/user-attachments/assets/3df60dd4-8b54-4947-a597-6141d42800e2" />
+
+  
+
 </details>
